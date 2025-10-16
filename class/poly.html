@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>POLYMORPHISIM</h1>
+
+    <script>
+        class car{
+            start(){}
+            stop(){}
+        }
+        class bmw extends car{
+            start(){
+                console.log("BMW started");
+            }
+            stop(){
+                console.log("BMW stopped");
+            }
+        }
+        class audi extends car{
+            start(){
+                console.log("AUDI started");
+            }
+            stop(){
+                console.log("AUDi stopped");
+            }
+        }
+        class driver{
+          static  drive(c){
+                c.start();
+                c.stop();
+            }
+        }
+            class test{
+
+                static main(){
+                    let d1=new bmw();
+                    driver.drive(d1);
+                    console.log("--------------");
+                    let d2=new audi();  
+                    driver.drive(d2);
+                }
+            }
+        test.main();
+    </script>
+</body>
+</html>

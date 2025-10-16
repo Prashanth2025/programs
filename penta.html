@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Pentagon Buttons</title>
+<style>
+  :root{
+    --size: 320px;     /* container size */
+    --btn-size: 70px;  /* button width/height */
+    --radius: 110px;   /* distance from center to buttons */
+  }
+
+  body{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:system-ui,Segoe UI,Roboto,Arial;
+    background:#f4f6f8;
+  }
+
+  .pentagon-wrap{
+    position:relative;
+    width:var(--size);
+    height:var(--size);
+    /* optional visual center guide for debugging:
+    background: radial-gradient(circle at center, rgba(0,0,0,0.05), transparent 20%);
+    */
+  }
+
+  /* center point (optional) */
+  .center {
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:6px;height:6px;border-radius:50%;
+    background:transparent;
+  }
+
+  .btn {
+    --btn: var(--btn-size);
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:var(--btn);
+    height:var(--btn);
+    transform-origin:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:600;
+    text-decoration:none;
+    color:white;
+    user-select:none;
+    cursor:pointer;
+    box-shadow: 0 6px 14px rgba(20,20,40,0.12);
+    transition:transform .18s ease, filter .12s ease;
+    /* pentagon shape */
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    background: linear-gradient(135deg,#6c5ce7,#00b894);
+  }
+
+  .btn:active { transform: scale(.96); filter:brightness(.98); }
+
+  /* Place them at 5 angles: 90deg - 162 - 234 - 306 - 18 (so top one sits at ~270°? we want top at -90 => just pick these) */
+  /* We'll rotate the element around center, translate outward by radius, then counter-rotate to keep the button upright */
+  .btn:nth-child(1){
+    transform: translate(-50%,-50%) rotate( -90deg ) translateY(calc(-1 * var(--radius))) rotate( 90deg );
+  }
+  .btn:nth-child(2){
+    transform: translate(-50%,-50%) rotate( -18deg ) translateY(calc(-1 * var(--radius))) rotate( 18deg );
+  }
+  .btn:nth-child(3){
+    transform: translate(-50%,-50%) rotate( 54deg ) translateY(calc(-1 * var(--radius))) rotate( -54deg );
+  }
+  .btn:nth-child(4){
+    transform: translate(-50%,-50%) rotate( 126deg ) translateY(calc(-1 * var(--radius))) rotate( -126deg );
+  }
+  .btn:nth-child(5){
+    transform: translate(-50%,-50%) rotate( 198deg ) translateY(calc(-1 * var(--radius))) rotate( -198deg );
+  }
+
+  /* hover pop */
+  .btn:hover{ transform: translate(-50%,-50%) scale(1.06) translateZ(0); }
+
+  /* small screens: decrease radius & button size */
+  @media (max-width:420px){
+    :root{
+      --size: 240px;
+      --btn-size: 56px;
+      --radius: 78px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="pentagon-wrap">
+    <a class="btn" href="#">1</a>
+    <a class="btn" href="#">2</a>
+    <a class="btn" href="#">3</a>
+    <a class="btn" href="#">4</a>
+    <a class="btn" href="#">5</a>
+    <div class="center"></div>
+  </div>
+</body>
+</html>

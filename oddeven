@@ -1,0 +1,7 @@
+let n = 23345;
+
+function oddEven() {
+  if (n % 2 == 0) console.log("even");
+  else console.log("odd");
+}
+oddEven();

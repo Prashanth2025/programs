@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Encapsulation </h1>
+    <script>
+        class account
+        {
+            #transaction=[];
+            constructor(accno, name, balance)
+            {
+                this.accno=accno;
+                this.name=name;
+                this.balance=balance;
+            }
+            deposit(amt){
+                this.#transaction.push(amt);
+                this.balance+=amt;
+            }
+        }
+        let a1=new account(101,"ram",5000);
+        a1.deposit(2000);
+        console.log(a1);
+    </script>
+</body>
+</html>

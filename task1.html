@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Checkbox Info Column</title>
+    <style>
+      .checkbox {
+        border: 2px solid black;
+        width: 100px;
+        border-right: 1px;
+      }
+      .info {
+        margin-left: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="
+        margin-right: 30px;
+        border-right: 3px dashed blue;
+        padding-right: 10px;
+      "
+    >
+      <div class="checkbox">
+        <label><input type="checkbox" id="html" /> HTML</label><br />
+        <label><input type="checkbox" id="css" /> CSS</label><br />
+        <label><input type="checkbox" id="js" /> JavaScript</label>
+      </div>
+
+      <!-- Column 2: Info -->
+      <div
+        id="infoBox"
+        style="
+          border: 2px solid black;
+          padding: 10px;
+          min-width: 250px;
+          min-height: 100px;
+        "
+        class="info"
+      >
+        <!-- Info will appear here -->
+      </div>
+    </div>
+
+    <script>
+      // Get elements
+      let htmlBox = document.getElementById("html");
+      let cssBox = document.getElementById("css");
+      let jsBox = document.getElementById("js");
+      let infoBox = document.getElementById("infoBox");
+
+      // Function to update info box
+      function updateInfo() {
+        let info = "";
+
+        if (htmlBox.checked) {
+          info += "HTML is used to create the structure of a webpage.\n";
+        }
+        if (cssBox.checked) {
+          info += "CSS is used to style a webpage.\n";
+        }
+        if (jsBox.checked) {
+          info += "JavaScript makes the webpage interactive.\n";
+        }
+
+        infoBox.innerText = info; // show text inside box
+      }
+
+      // Add events
+      htmlBox.addEventListener("change", updateInfo);
+      cssBox.addEventListener("change", updateInfo);
+      jsBox.addEventListener("change", updateInfo);
+    </script>
+  </body>
+</html>
