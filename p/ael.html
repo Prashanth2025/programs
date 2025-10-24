@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Listener Example</title>
+    <style>
+      #myBtn {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="myBtn">Click Me</button>
+
+    <script>
+      const button = document.getElementById("myBtn");
+      button.addEventListener("click", function () {
+        console.log("Button clicked!");
+      });
+
+      button.addEventListener("click", () => {
+        console.log("Arrow function also works!");
+      });
+    </script>
+  </body>
+</html>

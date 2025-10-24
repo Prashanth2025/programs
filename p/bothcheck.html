@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let str = prompt("Enter the string");
+
+      function hasBothCases(input) {
+        let hasUpper = false;
+        let hasLower = false;
+
+        for (let i = 0; i < input.length; i++) {
+          let ch = input[i];
+          if (ch >= "A" && ch <= "Z") {
+            hasUpper = true;
+          } else if (ch >= "a" && ch <= "z") {
+            hasLower = true;
+          }
+        }
+
+        if (hasUpper && hasLower) {
+          console.log("✅ Both uppercase and lowercase letters are present.");
+        } else if (hasUpper) {
+          console.log(" Only Uppercase is present.");
+        } else {
+          console.log(" Only Lowercase is present.");
+        }
+      }
+
+      hasBothCases(str);
+    </script>
+  </body>
+</html>
