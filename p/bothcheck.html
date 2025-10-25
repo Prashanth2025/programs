@@ -20,12 +20,14 @@
           }
         }
 
-        if (hasUpper && hasLower) {
+        if (hasUpper && hasLower > 0) {
           console.log("✅ Both uppercase and lowercase letters are present.");
         } else if (hasUpper) {
           console.log(" Only Uppercase is present.");
-        } else {
+        } else if (hasLower) {
           console.log(" Only Lowercase is present.");
+        } else {
+          console.log(" No alphabetic characters found.");
         }
       }
 
