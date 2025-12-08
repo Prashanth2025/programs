@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    import React from 'react'; import 'bootstrap/dist/css/bootstrap.min.css';
+    const pizzaItems = [ { title: 'Cheese Burst', description: 'Loaded with
+    gooey cheese and love.', image: 'https://via.placeholder.com/350x200', }, {
+    title: 'Veggie Paradise', description: 'A colorful mix of fresh veggies.',
+    image: 'https://via.placeholder.com/350x200', }, { title: 'Pepperoni Feast',
+    description: 'Classic pepperoni with a crispy crust.', image:
+    'https://via.placeholder.com/350x200', }, ]; function PizzaCardGrid() {
+    return (
+    <div class="container py-5">
+      {/* Header */}
+      <div class="text-center mb-5">
+        <h1 class="fw-bold">🍕 Domino's Specials</h1>
+        <p class="text-muted">
+          Spending on Domino's isn't wasting money—it's investing in happiness.
+          So go ahead, click and enjoy!
+        </p>
+      </div>
+
+      {/* Card Grid */}
+      <div class="row g-4">
+        {pizzaItems.map((item, index) => (
+        <div class="col-md-4" key="{index}">
+          <div class="card shadow-sm border-0 h-100">
+            <img
+              src="{item.image}"
+              class="card-img-top"
+              alt="{item.title}"
+            />
+            <div class="card-body text-center">
+              <h5 class="card-title fw-bold">{item.title}</h5>
+              <p class="card-text text-muted">{item.description}</p>
+              <a href="#" class="btn btn-primary w-100">Order Now</a>
+            </div>
+          </div>
+        </div>
+        ))}
+      </div>
+    </div>
+    ); } export default PizzaCardGrid;
+  </body>
+</html>

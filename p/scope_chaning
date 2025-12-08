@@ -1,0 +1,21 @@
+let x = 1;
+
+function level1() {
+  let y = 2;
+
+  function level2() {
+    let z = 3;
+
+    function level3() {
+      console.log(x);
+      console.log(y);
+      console.log(msg);
+    }
+
+    level3();
+  }
+
+  level2();
+}
+
+level1();
